@@ -8,7 +8,9 @@ export const YoutubeProvider = ({children}) => {
 
     const [text, setText] = useState('');
 
-    const [searchedText, setSearchedText] = useState([]);
+    const searchedTextLS = JSON.parse(localStorage.getItem('text')) || []
+
+    const [searchedText, setSearchedText] = useState(searchedTextLS);
 
     const initialState = {videos : [], searchVideosList : [], loading: false, searching : false,}
 
@@ -16,7 +18,7 @@ export const YoutubeProvider = ({children}) => {
 
 
     //get videos
-    const API_KEY = 'AIzaSyBH7V9saaiXjUd0cmNFKHwlVVxVH3wyJY0';
+    const API_KEY = "AIzaSyBH7V9saaiXjUd0cmNFKHwlVVxVH3wyJY0";
     const getVideos = async () => {
         const params = new URLSearchParams({
             key : API_KEY,

@@ -2,6 +2,7 @@ import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 import Search from "./components/pages/Search/Search";
 import VideoContainer from "./components/layout/VideoContainer";
+import VideoPlayer from "./components/pages/Video/VideoPlayer";
 
 
 //context
@@ -31,6 +32,7 @@ function App() {
           >
           </Route>
           <Route path="/search" element={<Search />}></Route>
+          <Route path="/video/:id" element={<VideoPlayer />}></Route>
         </Routes>
         </div>
       </Router>

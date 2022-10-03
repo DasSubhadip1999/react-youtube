@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext} from 'react'
 import SearchListItem from './SearchListItem'
 import {v4 as uuidv4} from 'uuid'
 import YoutubeContext from '../../context/YoutubeContext'
 
 function SearchSuggestionList() {
-  const {searchedText} = useContext(YoutubeContext)
+  const {searchedText} = useContext(YoutubeContext);
   return (
     <div className='search-suggestion my-4'>
         {

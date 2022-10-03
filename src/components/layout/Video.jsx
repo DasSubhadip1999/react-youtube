@@ -1,8 +1,9 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
-function Video({data}) {
+function Video({data,id}) {
   return (
-    <div className="card card-compact w-full bg-base-100 shadow-xl rounded-none">
+    <Link to={`/video/${id}`} className="card card-compact w-full bg-base-100 shadow-xl rounded-none">
         <figure>
             <img src={data.thumbnails.high.url} alt="Shoes" />
         </figure>
@@ -10,7 +11,7 @@ function Video({data}) {
             <h2 className="card-title">{data.title}</h2>
             <p>{data.channelTitle}</p>
         </div>
-    </div>
+    </Link>
   )
 }
 

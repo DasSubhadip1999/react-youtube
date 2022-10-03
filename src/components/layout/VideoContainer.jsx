@@ -15,7 +15,7 @@ function VideoContainer() {
   return loading ? <Loading className='' /> : (
     <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-5 xl:grid-cols-4 xl:gap-5'>
         {
-            videos.map( video => <Video key={video.id} data={video.snippet} />)
+            videos.map( video => <Video key={video.id} id={video.id} data={video.snippet} />)
         }
     </div>
   )

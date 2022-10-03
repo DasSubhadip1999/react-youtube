@@ -14,8 +14,11 @@ function Search() {
     if( text !== '') {
       searchVideos(text);
       setText('');
-      setSearchedText(prev => [text, ...prev])
-
+      setSearchedText(prev => {
+        if(text !== prev) {
+          return [text, ...prev]
+        }
+      });
     }else {
       alert('Please fill something')
     }

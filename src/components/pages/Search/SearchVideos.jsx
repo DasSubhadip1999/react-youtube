@@ -7,7 +7,7 @@ function SearchVideos() {
   return (
     <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-5 xl:grid-cols-4 xl:gap-5'>
         {
-            searchVideosList.map( (video) => <Video data={video.snippet} key={uuidv4()} />)
+            searchVideosList.map( (video) => <Video data={video.snippet} id={video.id.videoId} key={uuidv4()} />)
         }
     </div>
   )

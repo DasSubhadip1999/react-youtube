@@ -24,7 +24,7 @@ export const YoutubeProvider = ({children}) => {
             key : API_KEY,
             part : 'snippet',
             chart : 'mostPopular',
-            maxResults : '20',
+            maxResults : '50',
             regionCode : 'IN',
         })
         setLoading();
@@ -49,13 +49,12 @@ export const YoutubeProvider = ({children}) => {
             q : t,
             type : 'video',
             order : 'viewCount',
-            maxResults : '20',
+            maxResults : '50',
         })
         setLoading();
         try {
             const res = await fetch(`https://www.googleapis.com/youtube/v3/search?${params}`);
             const {items} = await res.json()
-
             dispatch({
                 type : "SEARCH_VIDEOS",
                 payload : items,
@@ -94,6 +93,8 @@ export const YoutubeProvider = ({children}) => {
                     getVideos,
                     searchVideos,
                     showSuggestion,
+                    dispatch,
+
                 }
             }
         >

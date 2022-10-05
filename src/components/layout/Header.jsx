@@ -1,8 +1,27 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
 import SuggestionVideos from './SuggestionVideos'
+import YoutubeContext from '../context/YoutubeContext';
+
 
 function Header() {
+    const {setText, text, searchVideos, showSuggestion, setSearchedText} = useContext(YoutubeContext);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if( text !== '') {
+          searchVideos(text);
+          setText('');
+          setSearchedText(prev => {
+            if(text !== prev) {
+              return [text, ...prev]
+            }
+          });
+        }else {
+          alert('Please fill something')
+        }
+      }
+
   return (
     <>
     <nav className='flex justify-between items-center py-4 bg-base-300 w-full fixed top-[-1px] z-10'>
@@ -27,10 +46,10 @@ function Header() {
                 {/* display on big screen */}
                 <li className=''>
                     <div className='search w-[120%]'>
-                        <div className='flex justify-between items-center mx-auto'>
-                            <input className='w-[90%] rounded-sm px-2 py-1 outline-0 bg-base-300 border-[1px] border-gray-500 mx-3' type='text' placeholder='Search Youtube' />
-                            <button  className='text-xl rounded-full bg-base-200'><i className="fa-solid fa-microphone"></i></button>
-                        </div>
+                        <form onSubmit={handleSubmit} className='flex justify-between items-center mx-auto'>
+                            <input onChange={e => setText(e.target.value)} onClick={showSuggestion} value={text} className='w-[90%] rounded-sm px-2 py-1 outline-0 bg-base-300 border-[1px] border-gray-500 mx-3' type='text' placeholder='Search Youtube' />
+                            <button type='submit'  className='text-2xl rounded-full bg-base-200'><i className="fa-solid fa-circle-check"></i></button>
+                        </form>
                     </div>
                 </li>
                 <li className='grid items-center cursor-pointer'>

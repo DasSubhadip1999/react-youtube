@@ -26,14 +26,14 @@ function App() {
             <>
               <Header />
               <VideoContainer />
-              <Footer />
             </>
           }
           >
           </Route>
           <Route path="/search" element={<Search />}></Route>
-          <Route path="/video/:id" element={<VideoPlayer />}></Route>
+          <Route path="/video/:id/:title/:channelTitle" element={<VideoPlayer />}></Route>
         </Routes>
+        <Footer />
         </div>
       </Router>
     </YoutubeProvider>

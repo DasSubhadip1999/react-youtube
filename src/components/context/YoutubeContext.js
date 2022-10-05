@@ -18,7 +18,7 @@ export const YoutubeProvider = ({children}) => {
 
 
     //get videos
-    const API_KEY = process.env.REACT_APP_YOUTUBE_KEY;
+    const API_KEY = "AIzaSyBH7V9saaiXjUd0cmNFKHwlVVxVH3wyJY0";
     const getVideos = async () => {
         const params = new URLSearchParams({
             key : API_KEY,
